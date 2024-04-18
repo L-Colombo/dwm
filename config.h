@@ -82,9 +82,9 @@ static const char *termcmd[] = {"alacritty", NULL};
 /* custom commands */
 static const char *volUpCmd[] = {"pamixer", "-i", "5", NULL};
 static const char *volDownCmd[] = {"pamixer", "-d", "5", NULL};
+static const char *volMuteToggle[] = {"pamixer", "-t", NULL};
 static const char *brightnessUp[] = {"brightnessctl", "set", "+10%", NULL};
 static const char *brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
-static const char *volMuteToggle[] = {"pamixer", "-t", NULL};
 static const char *browserCmd[] = {"firefox", NULL};
 static const char *fileManagerCmd[] = {"thunar", NULL};
 static const char *whatsapp[] = {"whatsapp-for-linux", NULL};
