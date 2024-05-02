@@ -89,6 +89,7 @@ static const char *browserCmd[] = {"firefox", NULL};
 static const char *fileManagerCmd[] = {"thunar", NULL};
 static const char *whatsapp[] = {"whatsapp-for-linux", NULL};
 static const char *telegram[] = {"telegram-desktop", NULL};
+static const char *screenshot[] = {"xfce4-screenshooter", NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
@@ -105,6 +106,7 @@ static const Key keys[] = {
     {MODKEY, XK_e, spawn, {.v = fileManagerCmd}},
     {MODKEY, XK_w, spawn, {.v = whatsapp}},
     {MODKEY, XK_t, spawn, {.v = telegram}},
+    {MODKEY, XK_x, spawn, {.v = screenshot}},
 
     /* default findings (where not modified) */
     {MODKEY, XK_p, spawn, {.v = dmenucmd}},
