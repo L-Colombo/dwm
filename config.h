@@ -120,22 +120,16 @@ static const Key keys[] = {
     {MODKEY, XK_d, incnmaster, {.i = -1}},
     {MODKEY, XK_h, setmfact, {.f = -0.05}},
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
-    {MODKEY | ShiftMask,
-     XK_j,
-     movestack,
-     {.i = +1}}, // added via movestack patch
-    {MODKEY | ShiftMask,
-     XK_k,
-     movestack,
-     {.i = -1}},                                // added via movestack patch
+    {MODKEY | ShiftMask, XK_j, movestack, {.i = +1}}, // added via movestack patch
+    {MODKEY | ShiftMask, XK_k, movestack, {.i = -1}}, // added via movestack patch
     {MODKEY | ShiftMask, XK_Return, zoom, {0}}, // swapped with termcmd
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_c, killclient, {0}},
     {MODKEY, XK_n, setlayout, {.v = &layouts[0]}}, // swapped with telegram
-    {MODKEY, XK_o, setlayout, {.v = &layouts[1]}}, // swapped with browserCmd
+    {MODKEY | ShiftMask, XK_space, setlayout, {.v = &layouts[1]}}, // swapped with browserCmd
     {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
     {MODKEY, XK_space, setlayout, {0}},
-    {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
+    {MODKEY, XK_o, togglefloating, {0}}, // swappe with setlayout &layout[1]
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_comma, focusmon, {.i = -1}},
