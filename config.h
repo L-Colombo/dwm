@@ -120,16 +120,41 @@ static const Key keys[] = {
     {MODKEY, XK_d, incnmaster, {.i = -1}},
     {MODKEY, XK_h, setmfact, {.f = -0.05}},
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
-    {MODKEY | ShiftMask, XK_j, movestack, {.i = +1}}, // added via movestack patch
-    {MODKEY | ShiftMask, XK_k, movestack, {.i = -1}}, // added via movestack patch
+    {MODKEY | ShiftMask,
+     XK_j,
+     movestack,
+     {.i = +1}}, // added via movestack patch
+    {MODKEY | ShiftMask,
+     XK_k,
+     movestack,
+     {.i = -1}},                                // added via movestack patch
     {MODKEY | ShiftMask, XK_Return, zoom, {0}}, // swapped with termcmd
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_c, killclient, {0}},
     {MODKEY, XK_n, setlayout, {.v = &layouts[0]}}, // swapped with telegram
-    {MODKEY | ShiftMask, XK_space, setlayout, {.v = &layouts[1]}}, // swapped with browserCmd
+    {MODKEY | ShiftMask,
+     XK_space,
+     setlayout,
+     {.v = &layouts[1]}}, // swapped with browserCmd
     {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
     {MODKEY, XK_space, setlayout, {0}},
     {MODKEY, XK_o, togglefloating, {0}}, // swappe with setlayout &layout[1]
+    {MODKEY, XK_Down, moveresize, {.v = "0x 25y 0w 0h"}},
+    {MODKEY, XK_Up, moveresize, {.v = "0x -25y 0w 0h"}},
+    {MODKEY, XK_Right, moveresize, {.v = "25x 0y 0w 0h"}},
+    {MODKEY, XK_Left, moveresize, {.v = "-25x 0y 0w 0h"}},
+    {MODKEY | ShiftMask, XK_Down, moveresize, {.v = "0x 0y 0w 25h"}},
+    {MODKEY | ShiftMask, XK_Up, moveresize, {.v = "0x 0y 0w -25h"}},
+    {MODKEY | ShiftMask, XK_Right, moveresize, {.v = "0x 0y 25w 0h"}},
+    {MODKEY | ShiftMask, XK_Left, moveresize, {.v = "0x 0y -25w 0h"}},
+    {MODKEY | ControlMask, XK_Up, moveresizeedge, {.v = "t"}},
+    {MODKEY | ControlMask, XK_Down, moveresizeedge, {.v = "b"}},
+    {MODKEY | ControlMask, XK_Left, moveresizeedge, {.v = "l"}},
+    {MODKEY | ControlMask, XK_Right, moveresizeedge, {.v = "r"}},
+    {MODKEY | ControlMask | ShiftMask, XK_Up, moveresizeedge, {.v = "T"}},
+    {MODKEY | ControlMask | ShiftMask, XK_Down, moveresizeedge, {.v = "B"}},
+    {MODKEY | ControlMask | ShiftMask, XK_Left, moveresizeedge, {.v = "L"}},
+    {MODKEY | ControlMask | ShiftMask, XK_Right, moveresizeedge, {.v = "R"}},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_comma, focusmon, {.i = -1}},
