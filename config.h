@@ -51,6 +51,11 @@ static const Layout layouts[] = {
     {"[M]", monocle},
 };
 
+/* window following */
+#define WFACTIVE '>'
+#define WFINACTIVE 'x'
+#define WFDEFAULT WFACTIVE
+
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY, TAG)                                        \
@@ -102,6 +107,9 @@ static const Key keys[] = {
     {MODKEY, XK_t, spawn, {.v = telegram}},
     {MODKEY, XK_x, spawn, {.v = screenshot}},
     {MODKEY, XK_c, spawn, {.v = catfish}},
+
+    /* toggle window following */
+    {MODKEY | ShiftMask, XK_n, togglefollow, {0}},
 
     /* default findings (where not modified) */
     {MODKEY, XK_p, spawn, {.v = dmenucmd}},
@@ -163,7 +171,7 @@ static const Button buttons[] = {
     /* click                event mask      button          function argument */
     {ClkLtSymbol, 0, Button1, setlayout, {0}},
     {ClkLtSymbol, 0, Button3, setlayout, {.v = &layouts[2]}},
-    {ClkWinTitle, 0, Button2, zoom, {0}},
+    {ClkFollowSymbol, 0, Button1, togglefollow, {0}},
     {ClkStatusText, 0, Button2, spawn, {.v = termcmd}},
     {ClkClientWin, MODKEY, Button1, movemouse, {0}},
     {ClkClientWin, MODKEY, Button2, togglefloating, {0}},
