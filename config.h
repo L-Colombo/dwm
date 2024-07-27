@@ -11,6 +11,13 @@ static const int systraypinningfailfirst = 1; /* 1: if pinning fails, display sy
 static const int showsystray = 1;             /* 0 means no systray */
 static const int showbar = 1;                 /* 0 means no bar */
 static const int topbar = 1;                  /* 0 means bottom bar */
+/*  Display modes of the tab bar: never shown, always shown, shown only in  */
+/*  monocle mode in the presence of several windows.                        */
+/*  Modes after showtab_nmodes are disabled.                                */
+enum showtab_modes { showtab_never, showtab_auto, showtab_nmodes, showtab_always};
+static const int showtab			= showtab_auto;        /* Default tab bar show mode */
+static const int toptab				= True;               /* False means bottom tab bar */
+
 static const char *fonts[] = {"Iosevka Nerd Font Propo:size=14"};
 static const char dmenufont[] = "Iosevka Nerd Font Propo:size=14";
 static const char col_gray1[] = "#222222";
@@ -111,6 +118,9 @@ static const Key keys[] = {
     /* toggle window following */
     {MODKEY | ShiftMask, XK_n, togglefollow, {0}},
 
+    /* window tab mode */
+	{ MODKEY | ShiftMask,                       XK_t,      tabmode,        {showtab_never, showtab_always, showtab_auto} },
+
     /* default findings (where not modified) */
     {MODKEY, XK_p, spawn, {.v = dmenucmd}},
     {MODKEY, XK_Return, spawn, {.v = termcmd}}, // switched with zoom
@@ -180,4 +190,5 @@ static const Button buttons[] = {
     {ClkTagBar, 0, Button3, toggleview, {0}},
     {ClkTagBar, MODKEY, Button1, tag, {0}},
     {ClkTagBar, MODKEY, Button3, toggletag, {0}},
+	{ ClkTabBar,            0,              Button1,        focuswin,       {0} },
 };
