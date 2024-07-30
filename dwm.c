@@ -75,7 +75,12 @@ enum { CurNormal,
        CurMove,
        CurLast }; /* cursor */
 enum { SchemeNorm,
-       SchemeSel }; /* color schemes */
+       SchemeSel,
+       SchemeStatus,
+       SchemeTagsSel,
+       SchemeTagsNorm,
+       SchemeInfoSel,
+       SchemeInfoNorm }; /* color schemes */
 enum { NetSupported,
        NetWMName,
        NetWMState,
@@ -842,7 +847,7 @@ void drawbar(Monitor *m) {
   int boxw = drw->fonts->h / 6 + 2;
   unsigned int i, occ = 0, urg = 0;
   Client *c;
-  
+
   if (!m->showbar)
     return;
 
@@ -851,7 +856,7 @@ void drawbar(Monitor *m) {
 
   /* draw status first so it can be overdrawn by tags later */
   if (m == selmon) { /* status is only drawn on selected monitor */
-    drw_setscheme(drw, scheme[SchemeNorm]);
+    drw_setscheme(drw, scheme[SchemeStatus]);
     tw = TEXTW(stext) - lrpad / 2 + 2; /* 2px extra right padding */
     drw_text(drw, m->ww - tw - stw, 0, tw, bh, lrpad / 2 - 2, stext, 0);
   }
@@ -865,7 +870,7 @@ void drawbar(Monitor *m) {
   x = 0;
   for (i = 0; i < LENGTH(tags); i++) {
     w = TEXTW(tags[i]);
-    drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
+    drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeTagsSel : SchemeTagsNorm]);
     drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
     if (occ & 1 << i)
       drw_rect(drw, x + boxs, boxs, boxw, boxw,
@@ -874,7 +879,7 @@ void drawbar(Monitor *m) {
     x += w;
   }
   w = TEXTW(m->ltsymbol);
-  drw_setscheme(drw, scheme[SchemeNorm]);
+  drw_setscheme(drw, scheme[SchemeTagsNorm]);
   x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
 
   w = TEXTW(m->wfsymbol);
@@ -882,12 +887,12 @@ void drawbar(Monitor *m) {
 
   if ((w = m->ww - tw - stw - x) > bh) {
     if (m->sel) {
-      drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);
+      drw_setscheme(drw, scheme[m == selmon ? SchemeInfoSel : SchemeInfoNorm]);
       drw_text(drw, x, 0, w, bh, lrpad / 2, m->sel->name, 0);
       if (m->sel->isfloating)
         drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
     } else {
-      drw_setscheme(drw, scheme[SchemeNorm]);
+      drw_setscheme(drw, scheme[SchemeInfoNorm]);
       drw_rect(drw, x, 0, w, bh, 1, 1);
     }
   }
@@ -1319,9 +1324,9 @@ void manage(Window w, XWindowAttributes *wa) {
   updatesizehints(c);
   updatewmhints(c);
   c->sfx = c->x;
-	c->sfy = c->y;
-	c->sfw = c->w;
-	c->sfh = c->h;
+  c->sfy = c->y;
+  c->sfw = c->w;
+  c->sfh = c->h;
   XSelectInput(dpy, w, EnterWindowMask | FocusChangeMask | PropertyChangeMask | StructureNotifyMask);
   grabbuttons(c, 0);
   if (!c->isfloating)
@@ -1933,18 +1938,16 @@ void setfullscreen(Client *c, int fullscreen) {
 }
 
 Layout *last_layout;
-void
-fullscreen(const Arg *arg)
-{
-	if (selmon->showbar) {
-		for(last_layout = (Layout *)layouts; last_layout != selmon->lt[selmon->sellt]; last_layout++);
-		setlayout(&((Arg) { .v = &layouts[2] }));
-	} else {
-		setlayout(&((Arg) { .v = last_layout }));
-	}
-	togglebar(arg);
+void fullscreen(const Arg *arg) {
+  if (selmon->showbar) {
+    for (last_layout = (Layout *)layouts; last_layout != selmon->lt[selmon->sellt]; last_layout++)
+      ;
+    setlayout(&((Arg){.v = &layouts[2]}));
+  } else {
+    setlayout(&((Arg){.v = last_layout}));
+  }
+  togglebar(arg);
 }
-
 
 void setlayout(const Arg *arg) {
   if (!arg || !arg->v || arg->v != selmon->lt[selmon->sellt])
