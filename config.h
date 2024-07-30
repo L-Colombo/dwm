@@ -96,9 +96,9 @@ static const char	*brightnessUp[]	  = {"brightnessctl", "set", "+10%", NULL};
 static const char	*brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
 static const char	*browserCmd[]	  = {"firefox",                      NULL};
 static const char	*fileManagerCmd[] = {"thunar",                       NULL};
-static const char	*whatsapp[]		  = {"whatsapp- for-linux",          NULL};
-static const char	*telegram[]		  = {"telegram- desktop",            NULL};
-static const char	*screenshot[]	  = {"xfce4- screenshooter",         NULL};
+static const char	*whatsapp[]		  = {"whatsapp-for-linux",          NULL};
+static const char	*telegram[]		  = {"telegram-desktop",            NULL};
+static const char	*screenshot[]	  = {"xfce4-screenshooter",         NULL};
 static const char	*catfish[]		  = {"catfish",                      NULL};
 
 #include "movestack.c"
