@@ -102,28 +102,28 @@ static const char	*brightnessUp[]	  = {"brightnessctl", "set", "+10%", NULL};
 static const char	*brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
 static const char	*browserCmd[]	  = {"firefox",                      NULL};
 static const char	*fileManagerCmd[] = {"thunar",                       NULL};
-static const char	*whatsapp[]		  = {"whatsapp-for-linux",          NULL};
-static const char	*telegram[]		  = {"telegram-desktop",            NULL};
-static const char	*screenshot[]	  = {"xfce4-screenshooter",         NULL};
+static const char	*whatsapp[]		  = {"whatsapp-for-linux",           NULL};
+static const char	*telegram[]		  = {"telegram-desktop",             NULL};
+static const char	*screenshot[]	  = {"xfce4-screenshooter",          NULL};
 static const char	*catfish[]		  = {"catfish",                      NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
 static const Key keys[] = {
-    /* modifier     key        function        argument */
+    /* modifier     key               function       argument */
 
     /* Custom commands' bindings*/
-    {0, XF86XK_AudioRaiseVolume,  spawn, {.v = volUpCmd}      },
-    {0, XF86XK_AudioLowerVolume,  spawn, {.v = volDownCmd}    },
-    {0, XF86XK_AudioMute,         spawn, {.v = volMuteToggle} },
-    {0, XF86XK_MonBrightnessUp,   spawn, {.v = brightnessUp}  },
-    {0, XF86XK_MonBrightnessDown, spawn, {.v = brightnessDown}},
-    {MODKEY, XK_f, spawn, {.v = browserCmd}    }, // swapped with setlayout float
-    {MODKEY, XK_e, spawn, {.v = fileManagerCmd}},
-    {MODKEY, XK_w, spawn, {.v = whatsapp}      },
-    {MODKEY, XK_t, spawn, {.v = telegram}      },
-    {MODKEY, XK_x, spawn, {.v = screenshot}    },
-    {MODKEY, XK_c, spawn, {.v = catfish}       },
+    {0,      XF86XK_AudioRaiseVolume,  spawn,    {.v = volUpCmd}},
+    {0,      XF86XK_AudioLowerVolume,  spawn,    {.v = volDownCmd}},
+    {0,      XF86XK_AudioMute,         spawn,    {.v = volMuteToggle}},
+    {0,      XF86XK_MonBrightnessUp,   spawn,    {.v = brightnessUp}},
+    {0,      XF86XK_MonBrightnessDown, spawn,    {.v = brightnessDown}},
+    {MODKEY, XK_f,                     spawn,    {.v = browserCmd}}, // swapped with setlayout float
+    {MODKEY, XK_e,                     spawn,    {.v = fileManagerCmd}},
+    {MODKEY, XK_w,                     spawn,    {.v = whatsapp}},
+    {MODKEY, XK_t,                     spawn,    {.v = telegram}},
+    {MODKEY, XK_x,                     spawn,    {.v = screenshot}},
+    {MODKEY, XK_c,                     spawn,    {.v = catfish}},
 
     /* toggle window following */
     {MODKEY | ShiftMask, XK_n, togglefollow, {0}                                          },
@@ -132,48 +132,49 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_t, tabmode,      {showtab_never, showtab_always, showtab_auto}},
 
     /* default bindings (where not modified) */
-    {MODKEY								, XK_Return, spawn, {.v		= termcmd}},	// switched with zoom
-    {MODKEY								, XK_p,     spawn, {.v		= dmenucmd}},
-    {MODKEY								, XK_b,     togglebar,  {0}         },
-    {MODKEY								, XK_j,     focusstack, {.i = +1}   },
-    {MODKEY								, XK_k,     focusstack, {.i = -1}   },
-    {MODKEY								, XK_i,     incnmaster, {.i = +1}   },
-    {MODKEY								, XK_d,     incnmaster, {.i = -1}   },
-    {MODKEY								, XK_h,     setmfact,   {.f = -0.05}},
-    {MODKEY								, XK_l,     setmfact,   {.f = +0.05}},
-    {MODKEY								, XK_Tab,   view,       {0}         },
-    {MODKEY								, XK_n,     setlayout,  {.v = &layouts[0]}},	// swapped with telegram
-    {MODKEY								, XK_m,     setlayout,  {.v = &layouts[2]}},
-    {MODKEY								, XK_space, setlayout, {0}},
-    {MODKEY								, XK_o,     togglefloating, {0}},	// swappe with setlayout &layout[1]
-    {MODKEY								, XK_Down, moveresize, {.v  = "0x 25y 0w 0h"}},
-    {MODKEY								, XK_Up, moveresize, {.v	   = "0x -25y 0w 0h"}},
-    {MODKEY								, XK_Right, moveresize, {.v = "25x 0y 0w 0h"}},
-    {MODKEY								, XK_Left, moveresize, {.v  = "-25x 0y 0w 0h"}},
-    {MODKEY								, XK_0, view, {.ui		   = ~0}},
-    {MODKEY								, XK_comma, focusmon, {.i   = -1}},
-    {MODKEY								, XK_period, focusmon, {.i  = +1}},
-    {MODKEY | ShiftMask					, XK_j, movestack, {.i = +1}}, // added via movestack patch
-    {MODKEY | ShiftMask					, XK_k, movestack, {.i = -1}}, // added via movestack patch
-    {MODKEY | ShiftMask					, XK_Return, zoom, {0}},       // swapped with termcmd
-    {MODKEY | ShiftMask					, XK_c, killclient, {0}},
-    {MODKEY | ShiftMask					, XK_m, fullscreen, {0}},
-    {MODKEY | ShiftMask					, XK_Down, moveresize, {.v = "0x 0y 0w 25h"}},
-    {MODKEY | ShiftMask					, XK_Up, moveresize, {.v = "0x 0y 0w -25h"}},
-    {MODKEY | ShiftMask					, XK_Right, moveresize, {.v = "0x 0y 25w 0h"}},
-    {MODKEY | ShiftMask					, XK_Left, moveresize, {.v = "0x 0y -25w 0h"}},
-    {MODKEY | ControlMask				, XK_Up, moveresizeedge, {.v = "t"}},
-    {MODKEY | ControlMask				, XK_Down, moveresizeedge, {.v = "b"}},
-    {MODKEY | ControlMask				, XK_Left, moveresizeedge, {.v = "l"}},
-    {MODKEY | ControlMask				, XK_Right, moveresizeedge, {.v = "r"}},
-    {MODKEY | ShiftMask					, XK_0, tag, {.ui = ~0}},
-    {MODKEY | ShiftMask					, XK_comma, tagmon, {.i = -1}},
-    {MODKEY | ShiftMask					, XK_period, tagmon, {.i = +1}},
-    {MODKEY | ShiftMask					, XK_q, quit, {0}},
-    {MODKEY | ControlMask | ShiftMask	, XK_Up, moveresizeedge, {.v = "T"}},
-    {MODKEY | ControlMask | ShiftMask	, XK_Down, moveresizeedge, {.v = "B"}},
-    {MODKEY | ControlMask | ShiftMask	, XK_Left, moveresizeedge, {.v = "L"}},
-    {MODKEY | ControlMask | ShiftMask	, XK_Right, moveresizeedge, {.v = "R"}},
+    /* modifier                           key        function         argument */
+    {MODKEY								, XK_Return, spawn,          {.v = termcmd}},		// switched with zoom
+    {MODKEY								, XK_p,      spawn,          {.v = dmenucmd}},
+    {MODKEY								, XK_b,      togglebar,      {0}},
+    {MODKEY								, XK_j,      focusstack,     {.i = +1}},
+    {MODKEY								, XK_k,      focusstack,     {.i = -1}},
+    {MODKEY								, XK_i,      incnmaster,     {.i = +1}},
+    {MODKEY								, XK_d,      incnmaster,     {.i = -1}},
+    {MODKEY								, XK_h,      setmfact,       {.f = -0.05}},
+    {MODKEY								, XK_l,      setmfact,       {.f = +0.05}},
+    {MODKEY								, XK_Tab,    view,           {0}},
+    {MODKEY								, XK_n,      setlayout,      {.v = &layouts[0]}},	// swapped with telegram
+    {MODKEY								, XK_m,      setlayout,      {.v = &layouts[2]}},
+    {MODKEY								, XK_space,  setlayout,      {0}},
+    {MODKEY								, XK_o,      togglefloating, {0}},					// swappe with setlayout &layout[1]
+    {MODKEY								, XK_Down,   moveresize,     {.v = "0x 25y 0w 0h"}},
+    {MODKEY								, XK_Up,     moveresize,     {.v = "0x -25y 0w 0h"}},
+    {MODKEY								, XK_Right,  moveresize,     {.v = "25x 0y 0w 0h"}},
+    {MODKEY								, XK_Left,   moveresize,     {.v = "-25x 0y 0w 0h"}},
+    {MODKEY								, XK_0,      view,           {.ui = ~0}},
+    {MODKEY								, XK_comma,  focusmon,       {.i = -1}},
+    {MODKEY								, XK_period, focusmon,       {.i = +1}},
+    {MODKEY | ShiftMask					, XK_j,      movestack,      {.i = +1}},			// added via movestack patch
+    {MODKEY | ShiftMask					, XK_k,      movestack,      {.i = -1}},			// added via movestack patch
+    {MODKEY | ShiftMask					, XK_Return, zoom,           {0}},					// swapped with termcmd
+    {MODKEY | ShiftMask					, XK_c,      killclient,     {0}},
+    {MODKEY | ShiftMask					, XK_m,      fullscreen,     {0}},
+    {MODKEY | ShiftMask					, XK_Down,   moveresize,     {.v = "0x 0y 0w 25h"}},
+    {MODKEY | ShiftMask					, XK_Up,     moveresize,     {.v = "0x 0y 0w -25h"}},
+    {MODKEY | ShiftMask					, XK_Right,  moveresize,     {.v = "0x 0y 25w 0h"}},
+    {MODKEY | ShiftMask					, XK_Left,   moveresize,     {.v = "0x 0y -25w 0h"}},
+    {MODKEY | ControlMask				, XK_Up,     moveresizeedge, {.v = "t"}},
+    {MODKEY | ControlMask				, XK_Down,   moveresizeedge, {.v = "b"}},
+    {MODKEY | ControlMask				, XK_Left,   moveresizeedge, {.v = "l"}},
+    {MODKEY | ControlMask				, XK_Right,  moveresizeedge, {.v = "r"}},
+    {MODKEY | ShiftMask					, XK_0,      tag,            {.ui = ~0}},
+    {MODKEY | ShiftMask					, XK_comma,  tagmon,         {.i = -1}},
+    {MODKEY | ShiftMask					, XK_period, tagmon,         {.i = +1}},
+    {MODKEY | ShiftMask					, XK_q,      quit,           {0}},
+    {MODKEY | ControlMask | ShiftMask	, XK_Up,     moveresizeedge, {.v = "T"}},
+    {MODKEY | ControlMask | ShiftMask	, XK_Down,   moveresizeedge, {.v = "B"}},
+    {MODKEY | ControlMask | ShiftMask	, XK_Left,   moveresizeedge, {.v = "L"}},
+    {MODKEY | ControlMask | ShiftMask	, XK_Right,  moveresizeedge, {.v = "R"}},
     TAGKEYS(XK_1, 0)
 	TAGKEYS(XK_2, 1)
 	TAGKEYS(XK_3, 2)
