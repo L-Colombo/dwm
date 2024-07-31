@@ -1,9 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int	borderpx				= 3;	/* border pixel of windows */
-static const unsigned int	gappx					= 12;	/* gaps between windows */
-static const unsigned int	snap					= 32;	/* snap pixel */
+static const unsigned int	borderpx				= 2;	/* border pixel of windows */
+static const unsigned int	gappx					= 8;	/* gaps between windows */
+static const unsigned int	snap					= 12;	/* snap pixel */
 static const unsigned int	systraypinning			= 0;	/* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int	systrayonleft			= 0;	/* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int	systrayspacing			= 2;	/* systray spacing */
@@ -33,7 +33,7 @@ static const char	 col_blue[]  = "#072a6c";
 static const char   *colors[][3] = {
     /*                              fg         bg         border   */
     [SchemeNorm]				 = {col_gray3, col_gray1, col_gray2},
-    [SchemeSel]					 = {col_gray4, col_green, col_green},
+    [SchemeSel]					 = {col_gray4, col_blue, col_blue},
     [SchemeStatus]               = {col_gray3, col_gray1, "#000000"}, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]              = {col_gray4, col_blue,  "#000000"}, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]             = {col_gray3, col_gray1, "#000000"}, // Tagbar left unselected {text,background,not used but cannot be empty}
@@ -91,7 +91,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
     "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf",
-    col_gray3, "-sb", col_green, "-sf", col_gray4, NULL};
+    col_gray3, "-sb", col_blue, "-sf", col_gray4, NULL};
 
 static const char   *termcmd[]        = {"st",                           NULL};
 /* custom commands */
