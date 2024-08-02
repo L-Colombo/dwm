@@ -22,15 +22,15 @@ enum showtab_modes { showtab_never,
 static const int	showtab = showtab_auto;	/* Default tab bar show mode */
 static const int	toptab	= True;	/* False means bottom tab bar */
 
-static const char	*fonts[]	 = {"Iosevka Nerd Font Propo:size=14"};
-static const char	 dmenufont[] = "Iosevka Nerd Font Propo:size=14";
-static const char	 col_gray1[] = "#222222";
-static const char	 col_gray2[] = "#444444";
-static const char	 col_gray3[] = "#bbbbbb";
-static const char	 col_gray4[] = "#eeeeee";
+static const char	*fonts[]	  = {"Iosevka Nerd Font Propo:size=14"};
+static const char	 dmenufont[]  = "Iosevka Nerd Font Propo:size=14";
+static const char	 col_gray1[]  = "#222222";
+static const char	 col_gray2[]  = "#444444";
+static const char	 col_gray3[]  = "#bbbbbb";
+static const char	 col_gray4[]  = "#eeeeee";
 static const char	 col_orange[] = "#d79921";
-static const char	 col_blue[]  = "#0066ff";
-static const char   *colors[][3] = {
+static const char	 col_blue[]   = "#0066ff";
+static const char   *colors[][3]  = {
     /*                              fg         bg         border   */
     [SchemeNorm]				 = {col_gray3,  col_gray1, col_gray2},
     [SchemeSel]					 = {col_orange, col_blue,  col_orange},
@@ -95,9 +95,6 @@ static const char *dmenucmd[] = {
 
 static const char   *termcmd[]        = {"st",                           NULL};
 /* custom commands */
-static const char	*volUpCmd[]		  = {"pamixer",       "-i",  "5",    NULL};
-static const char	*volDownCmd[]	  = {"pamixer",       "-d",  "5",    NULL};
-static const char	*volMuteToggle[]  = {"pamixer",       "-t",          NULL};
 static const char	*brightnessUp[]	  = {"brightnessctl", "set", "+10%", NULL};
 static const char	*brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
 static const char	*browserCmd[]	  = {"firefox",                      NULL};
@@ -113,9 +110,9 @@ static const Key keys[] = {
     /* modifier     key               function       argument */
 
     /* Custom commands' bindings*/
-    {0,      XF86XK_AudioRaiseVolume,  spawn,    {.v = volUpCmd}},
-    {0,      XF86XK_AudioLowerVolume,  spawn,    {.v = volDownCmd}},
-    {0,      XF86XK_AudioMute,         spawn,    {.v = volMuteToggle}},
+    {0,      XF86XK_AudioRaiseVolume,  spawn,    SHCMD("pamixer -i 5; kill -44 $(pidof dwmblocks)") },
+    {0,      XF86XK_AudioLowerVolume,  spawn,    SHCMD("pamixer -d 5; kill -44 $(pidof dwmblocks)")},
+    {0,      XF86XK_AudioMute,         spawn,    SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)")},
     {0,      XF86XK_MonBrightnessUp,   spawn,    {.v = brightnessUp}},
     {0,      XF86XK_MonBrightnessDown, spawn,    {.v = brightnessDown}},
     {MODKEY, XK_f,                     spawn,    {.v = browserCmd}}, // swapped with setlayout float
