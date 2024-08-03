@@ -93,16 +93,20 @@ static const char *dmenucmd[] = {
     "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf",
     col_gray3, "-sb", col_blue, "-sf", col_gray4, NULL};
 
-static const char   *termcmd[]        = {"st",                           NULL};
+ /* scratchpad */
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t",   scratchpadname, "-g", "68x18",  NULL };
+
+static const char   *termcmd[]        = {"st",                                       NULL};
 /* custom commands */
-static const char	*brightnessUp[]	  = {"brightnessctl", "set", "+10%", NULL};
-static const char	*brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
-static const char	*browserCmd[]	  = {"firefox",                      NULL};
-static const char	*fileManagerCmd[] = {"thunar",                       NULL};
-static const char	*whatsapp[]		  = {"whatsapp-for-linux",           NULL};
-static const char	*telegram[]		  = {"telegram-desktop",             NULL};
-static const char	*screenshot[]	  = {"xfce4-screenshooter",          NULL};
-static const char	*catfish[]		  = {"catfish",                      NULL};
+static const char	*brightnessUp[]	  = {"brightnessctl", "set", "+10%",             NULL};
+static const char	*brightnessDown[] = {"brightnessctl", "set", "10%-",             NULL};
+static const char	*browserCmd[]	  = {"firefox",                                  NULL};
+static const char	*fileManagerCmd[] = {"thunar",                                   NULL};
+static const char	*whatsapp[]		  = {"whatsapp-for-linux",                       NULL};
+static const char	*telegram[]		  = {"telegram-desktop",                         NULL};
+static const char	*screenshot[]	  = {"xfce4-screenshooter",                      NULL};
+static const char	*catfish[]		  = {"catfish",                                  NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
@@ -122,11 +126,14 @@ static const Key keys[] = {
     {MODKEY, XK_x,                     spawn,    {.v = screenshot}},
     {MODKEY, XK_c,                     spawn,    {.v = catfish}},
 
+    /* toggle scratchpad */
+    {MODKEY, XK_backslash, togglescratch, {.v = scratchpadcmd}},
+
     /* toggle window following */
     {MODKEY | ShiftMask, XK_n, togglefollow, {0}                                          },
 
     /* window tab mode */
-    {MODKEY | ShiftMask, XK_t, tabmode,      {showtab_never, showtab_always, showtab_auto}},
+    {MODKEY | ShiftMask, XK_t, tabmode,      {showtab_auto}},
 
     /* default bindings (where not modified) */
     /* modifier                           key        function         argument */
