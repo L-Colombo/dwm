@@ -107,6 +107,7 @@ static const char	*whatsapp[]		  = {"whatsapp-for-linux",                       
 static const char	*telegram[]		  = {"telegram-desktop",                         NULL};
 static const char	*screenshot[]	  = {"xfce4-screenshooter",                      NULL};
 static const char	*catfish[]		  = {"catfish",                                  NULL};
+static const char   *emacs[]          = {"emacs",                                    NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
@@ -125,6 +126,7 @@ static const Key keys[] = {
     {MODKEY, XK_t,                     spawn,    {.v = telegram}},
     {MODKEY, XK_x,                     spawn,    {.v = screenshot}},
     {MODKEY, XK_c,                     spawn,    {.v = catfish}},
+	{MODKEY | ShiftMask, XK_e,         spawn,    {.v = emacs}},
 
     /* toggle scratchpad */
     {MODKEY, XK_backslash, togglescratch, {.v = scratchpadcmd}},
