@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int	borderpx				= 2;	/* border pixel of windows */
-static const unsigned int	gappx					= 8;	/* gaps between windows */
+static const unsigned int	borderpx				= 3;	/* border pixel of windows */
+static const unsigned int	gappx					= 10;	/* gaps between windows */
 static const unsigned int	snap					= 12;	/* snap pixel */
 static const unsigned int	systraypinning			= 0;	/* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int	systrayonleft			= 0;	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -30,15 +30,16 @@ static const char	 col_gray3[]  = "#bbbbbb";
 static const char	 col_gray4[]  = "#eeeeee";
 static const char	 col_orange[] = "#d79921";
 static const char	 col_blue[]   = "#0066ff";
+static const char    col_red[]    = "#cc241d";
 static const char   *colors[][3]  = {
-    /*                              fg         bg         border   */
-    [SchemeNorm]				 = {col_gray3,  col_gray1, col_gray2},
-    [SchemeSel]					 = {col_orange, col_blue,  col_orange},
+    /*                              fg           bg         border   */
+    [SchemeNorm]				 = {col_gray3,   col_gray1, col_gray2},
+    [SchemeSel]					 = {col_orange,  col_blue,  col_red},
     [SchemeStatus]               = {col_orange,  col_gray1, "#000000"}, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]              = {col_gray4,  col_blue,  "#000000"}, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]             = {col_orange, col_gray1, "#000000"}, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]              = {col_gray4,  col_blue,  "#000000"}, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]             = {col_gray3,  col_gray1, "#000000"}, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeTagsSel]              = {col_gray4,   col_blue,  "#000000"}, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]             = {col_orange,  col_gray1, "#000000"}, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]              = {col_gray4,   col_blue,  "#000000"}, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]             = {col_gray3,   col_gray1, "#000000"}, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -51,7 +52,6 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Catfish",    NULL,       NULL,        0,           1,           -1},
-    {"Thunar",     NULL,       NULL,        0,           1,           -1},
     {"Firefox",    NULL,       NULL,        1 << 8,      0,           -1},
 };
 
@@ -95,19 +95,20 @@ static const char *dmenucmd[] = {
 
  /* scratchpad */
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t",   scratchpadname, "-g", "68x18",  NULL };
+static const char *scratchpadcmd[] = { "st", "-t",   scratchpadname, "-g", "68x18",        NULL };
 
-static const char   *termcmd[]        = {"st",                                       NULL};
+static const char   *termcmd[]        = {"st",                                             NULL};
 /* custom commands */
-static const char	*brightnessUp[]	  = {"brightnessctl", "set", "+10%",             NULL};
-static const char	*brightnessDown[] = {"brightnessctl", "set", "10%-",             NULL};
-static const char	*browserCmd[]	  = {"firefox",                                  NULL};
-static const char	*fileManagerCmd[] = {"thunar",                                   NULL};
-static const char	*whatsapp[]		  = {"whatsapp-for-linux",                       NULL};
-static const char	*telegram[]		  = {"telegram-desktop",                         NULL};
-static const char	*screenshot[]	  = {"xfce4-screenshooter",                      NULL};
-static const char	*catfish[]		  = {"catfish",                                  NULL};
-static const char   *emacs[]          = {"emacs",                                    NULL};
+static const char	*brightnessUp[]   = {"brightnessctl", "set", "+10%",                   NULL};
+static const char	*brightnessDown[] = {"brightnessctl", "set", "10%-",                   NULL};
+static const char	*browserCmd[]	  = {"firefox",                                        NULL};
+static const char	*fileManagerCmd[] = {"thunar",                                         NULL};
+static const char	*whatsapp[]       = {"whatsapp-for-linux",                             NULL};
+static const char	*telegram[]       = {"telegram-desktop",                               NULL};
+static const char	*screenshot[]	  = {"xfce4-screenshooter",                            NULL};
+static const char	*catfish[]		  = {"catfish",                                        NULL};
+static const char   *emacs[]          = {"emacs",                                          NULL};
+static const char   *lock_screen[]    = {"i3lock", "-c", "#242424",                      NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
@@ -127,6 +128,7 @@ static const Key keys[] = {
     {MODKEY, XK_x,                     spawn,    {.v = screenshot}},
     {MODKEY, XK_c,                     spawn,    {.v = catfish}},
 	{MODKEY | ShiftMask, XK_e,         spawn,    {.v = emacs}},
+    {MODKEY | ControlMask, XK_l,       spawn,    {.v = lock_screen}},
 
     /* toggle scratchpad */
     {MODKEY, XK_backslash, togglescratch, {.v = scratchpadcmd}},
