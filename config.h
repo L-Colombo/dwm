@@ -56,9 +56,10 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
+#include "tatami.c"
 static const float	mfact		   = 0.55;	/* factor of master area size [0.05..0.95] */
 static const int	nmaster		   = 1;		/* number of clients in master area */
-static const int	resizehints	   = 1;		/* 1 means respect size hints in tiled resizals */
+static const int	resizehints	   = 0;		/* 1 means respect size hints in tiled resizals */
 static const int	lockfullscreen = 1;		/* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -66,6 +67,7 @@ static const Layout layouts[] = {
     {"[]=",       tile}, /* first entry is default */
     {"><>",       NULL}, /* no layout function means floating behavior */
     {"[M]",       monocle},
+	{"|+|",       tatami},
 };
 
 /* window following */
@@ -153,6 +155,7 @@ static const Key keys[] = {
     {MODKEY								, XK_Tab,    view,           {0}},
     {MODKEY								, XK_n,      setlayout,      {.v = &layouts[0]}},	// swapped with telegram
     {MODKEY								, XK_m,      setlayout,      {.v = &layouts[2]}},
+	{MODKEY                             , XK_y,      setlayout,      {.v = &layouts[3]}},
     {MODKEY								, XK_space,  setlayout,      {0}},
     {MODKEY								, XK_o,      togglefloating, {0}},					// swappe with setlayout &layout[1]
     {MODKEY								, XK_Down,   moveresize,     {.v = "0x 25y 0w 0h"}},
