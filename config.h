@@ -154,9 +154,9 @@ static const Key keys[] = {
     {MODKEY								, XK_l,      setmfact,       {.f = +0.05}},
     {MODKEY								, XK_Tab,    view,           {0}},
     {MODKEY								, XK_n,      setlayout,      {.v = &layouts[0]}},	// swapped with telegram
+    {MODKEY								, XK_space,  setlayout,      {.v = &layouts[1]}},
     {MODKEY								, XK_m,      setlayout,      {.v = &layouts[2]}},
 	{MODKEY                             , XK_y,      setlayout,      {.v = &layouts[3]}},
-    {MODKEY								, XK_space,  setlayout,      {0}},
     {MODKEY								, XK_o,      togglefloating, {0}},					// swappe with setlayout &layout[1]
     {MODKEY								, XK_Down,   moveresize,     {.v = "0x 25y 0w 0h"}},
     {MODKEY								, XK_Up,     moveresize,     {.v = "0x -25y 0w 0h"}},
