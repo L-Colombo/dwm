@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int	borderpx				= 3;	/* border pixel of windows */
+static const unsigned int	borderpx				= 2;	/* border pixel of windows */
 static const unsigned int	gappx					= 10;	/* gaps between windows */
 static const unsigned int	snap					= 12;	/* snap pixel */
 static const unsigned int	systraypinning			= 0;	/* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -25,21 +25,18 @@ static const int	toptab	= True;	/* False means bottom tab bar */
 static const char	*fonts[]	  = {"Iosevka Nerd Font Propo:size=14"};
 static const char	 dmenufont[]  = "Iosevka Nerd Font Propo:size=14";
 static const char	 col_gray1[]  = "#222222";
-static const char	 col_gray2[]  = "#444444";
-static const char	 col_gray3[]  = "#bbbbbb";
-static const char	 col_gray4[]  = "#eeeeee";
-static const char	 col_orange[] = "#d79921";
-static const char	 col_blue[]   = "#0066ff";
-static const char    col_red[]    = "#cc241d";
+static const char	 col_gray2[]  = "#555555";
+static const char	 col_white[]  = "#ffffff";
+static const char	 col_pink[]   = "#ff007f";
 static const char   *colors[][3]  = {
     /*                              fg           bg         border   */
-    [SchemeNorm]				 = {col_gray3,   col_gray1, col_gray2},
-    [SchemeSel]					 = {col_orange,  col_blue,  col_red},
-    [SchemeStatus]               = {col_orange,  col_gray1, "#000000"}, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]              = {col_gray4,   col_blue,  "#000000"}, // Tagbar left selected {text,background,not used but cannot be empty}
-	[SchemeTagsNorm]             = {col_orange,  col_gray1, "#000000"}, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]              = {col_gray4,   col_blue,  "#000000"}, // infobar middle  selected {text,background,not used but cannot be empty}
-	[SchemeInfoNorm]             = {col_gray3,   col_gray1, "#000000"}, // infobar middle  unselected {text,background,not used but cannot be empty}
+    [SchemeNorm]				 = {col_white,   col_gray1,  col_gray2},
+    [SchemeSel]					 = {col_pink,    col_gray1,  col_pink},
+    [SchemeStatus]               = {col_white,   col_gray1,  "#000000"}, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]              = {col_pink,    col_gray1,  "#000000"}, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]             = {col_white,   col_gray1,  "#000000"}, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]              = {col_pink,    col_gray1,  "#000000"}, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]             = {col_white,   col_gray1,  "#000000"}, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -69,7 +66,7 @@ static const Layout layouts[] = {
     {"[]=",       tile}, /* first entry is default */
     {"><>",       NULL}, /* no layout function means floating behavior */
     {"[M]",       monocle},
-    {"|+|",       tatami},
+    {"[#]",       tatami},
     {"[@]",       spiral},
     {"[\\]",      dwindle},
 };
@@ -81,11 +78,11 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod4Mask
-#define TAGKEYS(KEY, TAG)                                        \
-      {MODKEY							, KEY, view, {.ui = 1 << TAG}},                         \
+#define TAGKEYS(KEY, TAG) \
+      {MODKEY							, KEY, view,       {.ui = 1 << TAG}}, \
       {MODKEY | ControlMask				, KEY, toggleview, {.ui = 1 << TAG}}, \
-      {MODKEY | ShiftMask				, KEY, tag, {.ui = 1 << TAG}},          \
-      {MODKEY | ControlMask | ShiftMask	, KEY, toggletag, {.ui = 1 << TAG}},
+      {MODKEY | ShiftMask				, KEY, tag,        {.ui = 1 << TAG}}, \
+      {MODKEY | ControlMask | ShiftMask	, KEY, toggletag,  {.ui = 1 << TAG}},
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd)                                       \
@@ -97,7 +94,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
     "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf",
-    col_gray3, "-sb", col_blue, "-sf", col_gray4, NULL};
+    col_white, "-sb", col_pink, "-sf", col_gray1, NULL};
 
  /* scratchpad */
 static const char scratchpadname[] = "scratchpad";
@@ -161,7 +158,7 @@ static const Key keys[] = {
     {MODKEY								, XK_space,  setlayout,      {.v = &layouts[1]}},
     {MODKEY								, XK_m,      setlayout,      {.v = &layouts[2]}},
 	{MODKEY                             , XK_y,      setlayout,      {.v = &layouts[3]}},
-    {MODKEY                             , XK_r,      setlayout,      {.v = &layouts[4]}},
+    {MODKEY                             , XK_s,      setlayout,      {.v = &layouts[4]}},
     {MODKEY                             , XK_q,      setlayout,      {.v = &layouts[5]}},
     {MODKEY								, XK_o,      togglefloating, {0}},					// swappe with setlayout &layout[1]
     {MODKEY								, XK_Down,   moveresize,     {.v = "0x 25y 0w 0h"}},
