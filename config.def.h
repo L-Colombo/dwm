@@ -22,20 +22,20 @@ enum showtab_modes { showtab_never,
 static const int	showtab = showtab_auto;	/* Default tab bar show mode */
 static const int	toptab	= True;	/* False means bottom tab bar */
 
-static const char	*fonts[]	      = {"Iosevka Nerd Font Propo:size=14"};
-static const char	 dmenufont[]      = "Iosevka Nerd Font Propo:size=14";
+static const char	*fonts[]	      = {"ZedMono Nerd Font Propo:size=14"};
+static const char	 dmenufont[]      = "ZedMono Nerd Font Propo:size=14";
 static const char	 col_gray1[]      = "#222222";
 static const char	 col_gray2[]      = "#555555";
 static const char	 col_white[]      = "#ffffff";
-static const char	 accent_color[]   = "#39ff14";
+static const char	 accent_color[]   = "#005577";
 static const char   *colors[][3]      = {
     /*                              fg                bg         border   */
     [SchemeNorm]				 = {col_white,       col_gray1,  col_gray2},
-    [SchemeSel]					 = {accent_color,    col_gray1,  accent_color},
+    [SchemeSel]					 = {col_gray1,    accent_color,  accent_color},
     [SchemeStatus]               = {col_white,       col_gray1,  "#000000"}, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]              = {accent_color,    col_gray1,  "#000000"}, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsSel]              = {col_gray1,    accent_color,  "#000000"}, // Tagbar left selected {text,background,not used but cannot be empty}
 	[SchemeTagsNorm]             = {col_white,       col_gray1,  "#000000"}, // Tagbar left unselected {text,background,not used but cannot be empty}
-	[SchemeInfoSel]              = {accent_color,    col_gray1,  "#000000"}, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]              = {col_gray1,    accent_color,  "#000000"}, // infobar middle  selected {text,background,not used but cannot be empty}
 	[SchemeInfoNorm]             = {col_white,       col_gray1,  "#000000"}, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
