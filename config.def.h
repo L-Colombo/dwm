@@ -49,6 +49,7 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Catfish",    NULL,       NULL,        0,           1,           -1},
+    {"Parole",     NULL,       NULL,        0,           1,           -1},
     {"Firefox",    NULL,       NULL,        1 << 8,      0,           -1},
 };
 
@@ -110,8 +111,8 @@ static const char	*whatsapp[]       = {"whatsapp-for-linux",                    
 static const char	*telegram[]       = {"telegram-desktop",                               NULL};
 static const char	*screenshot[]	  = {"xfce4-screenshooter",                            NULL};
 static const char	*catfish[]		  = {"catfish",                                        NULL};
-static const char   *emacs[]          = {"emacs",                                          NULL};
-static const char   *lock_screen[]    = {"i3lock", "-c", "#242424",                      NULL};
+static const char   *emacs[]          = {"emacsclient", "-c", "-a", "''",                  NULL};
+static const char   *lock_screen[]    = {"xfce4-screensaver-command", "--lock",            NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
@@ -124,11 +125,11 @@ static const Key keys[] = {
     {0,      XF86XK_AudioMute,         spawn,    SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)")},
     {0,      XF86XK_MonBrightnessUp,   spawn,    {.v = brightnessUp}},
     {0,      XF86XK_MonBrightnessDown, spawn,    {.v = brightnessDown}},
+    {0,      XK_Print,                 spawn,    {.v = screenshot}},
     {MODKEY, XK_f,                     spawn,    {.v = browserCmd}}, // swapped with setlayout float
     {MODKEY, XK_e,                     spawn,    {.v = fileManagerCmd}},
     {MODKEY, XK_w,                     spawn,    {.v = whatsapp}},
     {MODKEY, XK_t,                     spawn,    {.v = telegram}},
-    {MODKEY, XK_x,                     spawn,    {.v = screenshot}},
     {MODKEY, XK_c,                     spawn,    {.v = catfish}},
 	{MODKEY | ShiftMask, XK_e,         spawn,    {.v = emacs}},
     {MODKEY | ControlMask, XK_l,       spawn,    {.v = lock_screen}},
