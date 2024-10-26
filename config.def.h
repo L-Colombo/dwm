@@ -27,7 +27,7 @@ static const char	 dmenufont[]      = "ZedMono Nerd Font Propo:size=14";
 static const char	 col_gray1[]      = "#222222";
 static const char	 col_gray2[]      = "#555555";
 static const char	 col_white[]      = "#ffffff";
-static const char	 accent_color[]   = "#33ff00";
+static const char	 accent_color[]   = "#076678";
 static const char   *colors[][3]      = {
     /*                              fg                bg         border   */
     [SchemeNorm]				 = {col_white,       col_gray1,  col_gray2},
@@ -107,11 +107,11 @@ static const char	*brightnessUp[]   = {"brightnessctl", "set", "+10%",          
 static const char	*brightnessDown[] = {"brightnessctl", "set", "10%-",                   NULL};
 static const char	*browserCmd[]	  = {"firefox",                                        NULL};
 static const char	*fileManagerCmd[] = {"thunar",                                         NULL};
-static const char	*whatsapp[]       = {"whatsapp-for-linux",                             NULL};
+static const char	*whatsapp[]       = {"wasistlos",                                      NULL};
 static const char	*telegram[]       = {"telegram-desktop",                               NULL};
 static const char	*screenshot[]	  = {"xfce4-screenshooter",                            NULL};
 static const char	*catfish[]		  = {"catfish",                                        NULL};
-static const char   *emacs[]          = {"emacsclient", "-c", "-a", "''",                  NULL};
+static const char   *emacs[]          = {"emacs",                                          NULL};
 static const char   *lock_screen[]    = {"xfce4-screensaver-command", "--lock",            NULL};
 
 #include "movestack.c"
