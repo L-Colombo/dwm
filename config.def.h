@@ -27,7 +27,7 @@ static const char dmenufont[] = "UbuntuMono Nerd Font Propo:size=16";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#555555";
 static const char col_white[] = "#ffffff";
-static const char accent_color[] = "#d79921";
+static const char accent_color[] = "#fc0fc0";
 static const char *colors[][3] = {
     /*                              fg                bg         border   */
     [SchemeNorm] = {col_white, col_gray1, col_gray2},
