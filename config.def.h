@@ -27,7 +27,7 @@ static const char dmenufont[] = "Iosevka Nerd Font Propo:size=15";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#555555";
 static const char col_white[] = "#ffffff";
-static const char accent_color[] = "#009d30";
+static const char accent_color[] = "#fc0fc0";
 static const char *colors[][3] = {
     /*                              fg                bg         border   */
     [SchemeNorm] = {col_white, col_gray1, col_gray2},
@@ -65,10 +65,10 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    {"|M|", centeredmaster}, /* first entry is default */
-    {"><>", NULL},           /* no layout function means floating behavior */
+    {"[#]", tatami}, /* first entry is default */
+    {"><>", NULL},   /* no layout function means floating behavior */
     {"[M]", monocle},
-    {"[#]", tatami},
+    {"|M|", centeredmaster},
     {"[@]", spiral},
     {"[\\]", dwindle},
     {"[]=", tile},
@@ -158,10 +158,10 @@ static const Key keys[] = {
     {MODKEY, XK_h, setmfact, {.f = -0.05}},
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY, XK_Tab, view, {0}},
-    {MODKEY, XK_u, setlayout, {.v = &layouts[0]}},
+    {MODKEY, XK_y, setlayout, {.v = &layouts[0]}},
     {MODKEY, XK_space, setlayout, {.v = &layouts[1]}},
     {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
-    {MODKEY, XK_y, setlayout, {.v = &layouts[3]}},
+    {MODKEY, XK_u, setlayout, {.v = &layouts[3]}},
     {MODKEY, XK_s, setlayout, {.v = &layouts[4]}},
     {MODKEY, XK_q, setlayout, {.v = &layouts[5]}},
     {MODKEY, XK_n, setlayout, {.v = &layouts[6]}}, // swapped with telegram
