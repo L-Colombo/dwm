@@ -135,8 +135,7 @@ static const char *telegram[] = {"telegram-desktop", NULL};
 static const char *screenshot[] = {"xfce4-screenshooter", NULL};
 static const char *catfish[] = {"catfish", NULL};
 static const char *emacs[] = {"emacs", NULL};
-static const char *lock_screen[] = {"xfce4-screensaver-command", "--lock",
-                                    NULL};
+static const char *lock_screen[] = {"i3lock", "--color=#000000", NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
