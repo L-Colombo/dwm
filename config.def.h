@@ -87,10 +87,10 @@ static const int lockfullscreen =
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    {"[#]", tatami}, /* first entry is default */
-    {"><>", NULL},   /* no layout function means floating behavior */
+    {"[]=", tile}, /* first entry is default */
+    {"><>", NULL}, /* no layout function means floating behavior */
     {"[M]", monocle},  {"|M|", centeredmaster}, {"[@]", spiral},
-    {"[\\]", dwindle}, {"[]=", tile},           {">M<", centeredfloatingmaster},
+    {"[\\]", dwindle}, {"[#]", tatami},         {">M<", centeredfloatingmaster},
 };
 
 /* window following */
@@ -182,13 +182,13 @@ static const Key keys[] = {
     {MODKEY, XK_h, setmfact, {.f = -0.05}},
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY, XK_Tab, view, {0}},
-    {MODKEY, XK_y, setlayout, {.v = &layouts[0]}},
+    {MODKEY, XK_n, setlayout, {.v = &layouts[0]}},
     {MODKEY, XK_space, setlayout, {.v = &layouts[1]}},
     {MODKEY, XK_m, setlayout, {.v = &layouts[2]}},
     {MODKEY, XK_u, setlayout, {.v = &layouts[3]}},
     {MODKEY, XK_s, setlayout, {.v = &layouts[4]}},
     {MODKEY, XK_q, setlayout, {.v = &layouts[5]}},
-    {MODKEY, XK_n, setlayout, {.v = &layouts[6]}}, // swapped with telegram
+    {MODKEY, XK_y, setlayout, {.v = &layouts[6]}}, // swapped with telegram
     {MODKEY, XK_r, setlayout, {.v = &layouts[7]}},
     {MODKEY, XK_o, togglefloating, {0}}, // swappe with setlayout &layout[1]
     {MODKEY, XK_Down, moveresize, {.v = "0x 25y 0w 0h"}},
