@@ -35,6 +35,7 @@ static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#555555";
 static const char col_white[] = "#ffffff";
 static const char accent_color[] = "#fc0fc0";
+static const char accent_bar_color[] = "#3400ff";
 static const char *colors[][3] = {
     /*                              fg                bg         border   */
     [SchemeNorm] = {col_white, col_gray1, col_gray2},
@@ -42,7 +43,7 @@ static const char *colors[][3] = {
     [SchemeStatus] = {col_white, col_gray1,
                       "#000000"}, // Statusbar right {text,background,not used
                                   // but cannot be empty}
-    [SchemeTagsSel] = {col_gray1, accent_color,
+    [SchemeTagsSel] = {col_white, accent_bar_color,
                        "#000000"}, // Tagbar left selected {text,background,not
                                    // used but cannot be empty}
     [SchemeTagsNorm] =
@@ -50,7 +51,7 @@ static const char *colors[][3] = {
          "#000000"}, // Tagbar left unselected {text,background,not used but
                      // cannot be empty}
     [SchemeInfoSel] =
-        {col_gray1, accent_color,
+        {col_white, accent_bar_color,
          "#000000"}, // infobar middle  selected {text,background,not used but
                      // cannot be empty}
     [SchemeInfoNorm] =
@@ -70,7 +71,7 @@ static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Catfish", NULL, NULL, 0, 1, -1},
     {"Parole", NULL, NULL, 0, 1, -1},
-    {"Firefox", NULL, NULL, 1 << 8, 0, -1},
+    {"Emacs", NULL, NULL, 0, 1, -1},
 };
 
 /* layout(s) */
