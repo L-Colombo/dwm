@@ -29,8 +29,8 @@ enum showtab_modes {
 static const int showtab = showtab_auto; /* Default tab bar show mode */
 static const int toptab = True;          /* False means bottom tab bar */
 
-static const char *fonts[] = {"Iosevka Nerd Font Propo:size=15"};
-static const char dmenufont[] = "Iosevka Nerd Font Propo:size=15";
+static const char *fonts[] = {"JetBrains Mono NL:size=14"};
+static const char dmenufont[] = "JetBrains Mono NL:size=14";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#555555";
 static const char col_white[] = "#ffffff";
@@ -129,7 +129,7 @@ static const char *termcmd[] = {"st", NULL};
 /* custom commands */
 static const char *brightnessUp[] = {"brightnessctl", "set", "+10%", NULL};
 static const char *brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
-static const char *browserCmd[] = {"firefox", NULL};
+static const char *browserCmd[] = {"brave", NULL};
 static const char *fileManagerCmd[] = {"pcmanfm", NULL};
 static const char *whatsapp[] = {"wasistlos", NULL};
 static const char *telegram[] = {"telegram-desktop", NULL};
