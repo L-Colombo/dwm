@@ -122,8 +122,16 @@ static const char *dmenucmd[] = {
 
 /* scratchpad */
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = {"st", "-t",    scratchpadname,
-                                      "-g", "68x18", NULL};
+const char *scratchpadcmd[] = {"kitty",
+                               "--title",
+                               scratchpadname,
+                               "--override",
+                               "initial_window_width=740",
+                               "--override",
+                               "initial_window_height=480",
+                               "--override",
+                               "remember_window_size=no",
+                               NULL};
 
 static const char *termcmd[] = {"kitty", NULL};
 /* custom commands */
