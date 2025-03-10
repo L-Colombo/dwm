@@ -125,7 +125,7 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = {"st", "-t",    scratchpadname,
                                       "-g", "68x18", NULL};
 
-static const char *termcmd[] = {"st", NULL};
+static const char *termcmd[] = {"kitty", NULL};
 /* custom commands */
 static const char *brightnessUp[] = {"brightnessctl", "set", "+10%", NULL};
 static const char *brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
