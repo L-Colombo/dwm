@@ -9,7 +9,7 @@ static const unsigned int systraypinning =
           X */
 static const unsigned int systrayonleft =
     0; /* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 2; /* systray spacing */
+static const unsigned int systrayspacing = 4; /* systray spacing */
 static const int systraypinningfailfirst =
     1; /* 1: if pinning fails, display systray on the first monitor, False:
           display systray on the last monitor*/
@@ -29,8 +29,8 @@ enum showtab_modes {
 static const int showtab = showtab_auto; /* Default tab bar show mode */
 static const int toptab = True;          /* False means bottom tab bar */
 
-static const char *fonts[] = {"UbuntuMono Nerd Font Propo:size=16"};
-static const char dmenufont[] = "UbuntuMono Nerd Font Propo:size=16";
+static const char *fonts[] = {"Mononoki Nerd Font Propo:size=18"};
+static const char dmenufont[] = "Mononoki Nerd Font Propo:size=18";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#555555";
 static const char col_white[] = "#ffffff";
