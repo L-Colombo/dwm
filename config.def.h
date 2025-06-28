@@ -71,6 +71,7 @@ static const Rule rules[] = {
     /* class      instance    title       tags mask     isfloating   monitor */
     {"Catfish", NULL, NULL, 0, 1, -1},
     {"Parole", NULL, NULL, 0, 1, -1},
+    {"Thunar", NULL, NULL, 0, 1, -1},
     {"Wasistlos", NULL, NULL, 1 << 8, 0, -1},
     {"Telegram", NULL, NULL, 1 << 8, 0, -1},
 };
