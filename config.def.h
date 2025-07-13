@@ -130,7 +130,7 @@ static const char *termcmd[] = {"st", NULL};
 /* custom commands */
 static const char *brightnessUp[] = {"brightnessctl", "set", "+10%", NULL};
 static const char *brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
-static const char *browserCmd[] = {"brave", NULL};
+static const char *browserCmd[] = {"firefox", NULL};
 static const char *fileManagerCmd[] = {"thunar", NULL};
 static const char *whatsapp[] = {"wasistlos", NULL};
 static const char *telegram[] = {"Telegram", NULL};
