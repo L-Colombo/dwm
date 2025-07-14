@@ -124,9 +124,16 @@ static const char *dmenucmd[] = {
 
 /* scratchpad */
 static const char scratchpadname[] = "scratchpad";
-const char *scratchpadcmd[] = {"st", "-t", scratchpadname, "-g", "68x18", NULL};
+const char *scratchpadcmd[] = {"alacritty",
+                               "-t",
+                               scratchpadname,
+                               "--option",
+                               "window.dimensions.lines=18",
+                               "--option",
+                               "window.dimensions.columns=72",
+                               NULL};
 
-static const char *termcmd[] = {"st", NULL};
+static const char *termcmd[] = {"alacritty", NULL};
 /* custom commands */
 static const char *brightnessUp[] = {"brightnessctl", "set", "+10%", NULL};
 static const char *brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
