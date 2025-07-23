@@ -145,7 +145,7 @@ static const char *screenshot[] = {"xfce4-screenshooter", NULL};
 static const char *catfish[] = {"catfish", NULL};
 static const char *emacs[] = {"emacs", NULL};
 static const char *lock_screen[] = {"i3lock", "--color=#000000", NULL};
-static const char *readpdf[] = {"readpdf", NULL};
+static const char *readpdf[] = {"readpdf.sh", NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
