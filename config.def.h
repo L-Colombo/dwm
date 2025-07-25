@@ -74,6 +74,7 @@ static const Rule rules[] = {
     {"Thunar", NULL, NULL, 0, 1, -1},
     {"Wasistlos", NULL, NULL, 1 << 8, 0, -1},
     {"Telegram", NULL, NULL, 1 << 8, 0, -1},
+    {"thunderbird", NULL, NULL, 1 << 7, 0, -1},
 };
 
 /* layout(s) */
@@ -146,6 +147,7 @@ static const char *catfish[] = {"catfish", NULL};
 static const char *emacs[] = {"emacs", NULL};
 static const char *lock_screen[] = {"i3lock", "--color=#000000", NULL};
 static const char *readpdf[] = {"readpdf.sh", NULL};
+static const char *thunderbird[] = {"thunderbird", NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
@@ -167,6 +169,7 @@ static const Key keys[] = {
     {MODKEY, XK_w, spawn, {.v = whatsapp}},
     {MODKEY, XK_t, spawn, {.v = telegram}},
     {MODKEY, XK_c, spawn, {.v = catfish}},
+    {MODKEY, XK_Up, spawn, {.v = thunderbird}},
     {MODKEY | ShiftMask, XK_r, spawn, {.v = readpdf}},
     {MODKEY | ShiftMask, XK_e, spawn, {.v = emacs}},
     {MODKEY | ControlMask, XK_l, spawn, {.v = lock_screen}},
