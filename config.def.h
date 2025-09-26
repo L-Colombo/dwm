@@ -34,8 +34,8 @@ static const char dmenufont[] = "BlexMono Nerd Font Propo:size=16";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#555555";
 static const char col_white[] = "#ffffff";
-static const char accent_color[] = "#021aff";
-static const char accent_bar_color[] = "#000080";
+static const char accent_color[] = "#005577";
+static const char accent_bar_color[] = "#005577";
 static const char *colors[][3] = {
     /*                              fg                bg         border   */
     [SchemeNorm] = {col_white, col_gray1, col_gray2},
