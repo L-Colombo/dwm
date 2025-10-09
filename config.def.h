@@ -29,8 +29,8 @@ enum showtab_modes {
 static const int showtab = showtab_auto; /* Default tab bar show mode */
 static const int toptab = True;          /* False means bottom tab bar */
 
-static const char *fonts[] = {"UbuntuMono Nerd Font Propo:size=16"};
-static const char dmenufont[] = "UbuntuMono Nerd Font Propo:size=16";
+static const char *fonts[] = {"UbuntuMono Nerd Font Propo:size=17"};
+static const char dmenufont[] = "UbuntuMono Nerd Font Propo:size=17";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#555555";
 static const char col_white[] = "#ffffff";
