@@ -1,9 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 4; /* border pixel of windows */
-static const unsigned int gappx = 10;   /* gaps between windows */
-static const unsigned int snap = 12;    /* snap pixel */
+static const unsigned int borderpx = 4;  /* border pixel of windows */
+static const unsigned int gappx    = 10; /* gaps between windows */
+static const unsigned int snap     = 12; /* snap pixel */
 static const unsigned int systraypinning =
     0; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor
           X */
@@ -14,49 +14,49 @@ static const int systraypinningfailfirst =
     1; /* 1: if pinning fails, display systray on the first monitor, False:
           display systray on the last monitor*/
 static const int showsystray = 1; /* 0 means no systray */
-static const int showbar = 1;     /* 0 means no bar */
-static const int topbar = 1;      /* 0 means bottom bar */
+static const int showbar     = 1; /* 0 means no bar */
+static const int topbar      = 1; /* 0 means bottom bar */
 
 /*  Display modes of the tab bar: never shown, always shown, shown only in  */
 /*  monocle mode in the presence of several windows.                        */
 /*  Modes after showtab_nmodes are disabled.                                */
 enum showtab_modes {
-  showtab_never,
-  showtab_auto,
-  showtab_nmodes,
-  showtab_always
+    showtab_never,
+    showtab_auto,
+    showtab_nmodes,
+    showtab_always
 };
-static const int showtab = showtab_auto; /* Default tab bar show mode */
-static const int toptab = True;          /* False means bottom tab bar */
+static const int showtab         = showtab_auto; /* Default tab bar show mode */
+static const int toptab          = True; /* False means bottom tab bar */
 
-static const char *fonts[] = {"Iosevka Nerd Font Propo:size=17"};
-static const char dmenufont[] = "Iosevka Nerd Font Propo:size=17";
-static const char col_gray1[] = "#222222";
-static const char col_gray2[] = "#555555";
-static const char col_white[] = "#ffffff";
+static const char *fonts[]       = {"CaskaydiaCove Nerd Font Propo:size=16"};
+static const char dmenufont[]    = "CaskaydiaCove Nerd Font Propo:size=16";
+static const char col_gray1[]    = "#222222";
+static const char col_gray2[]    = "#555555";
+static const char col_white[]    = "#ffffff";
 static const char accent_color[] = "#005577";
 static const char accent_bar_color[] = "#005577";
-static const char *colors[][3] = {
+static const char *colors[][3]       = {
     /*                              fg                bg         border   */
-    [SchemeNorm] = {col_white, col_gray1, col_gray2},
-    [SchemeSel] = {col_gray1, accent_color, accent_color},
+    [SchemeNorm]   = {col_white, col_gray1, col_gray2},
+    [SchemeSel]    = {col_gray1, accent_color, accent_color},
     [SchemeStatus] = {col_white, col_gray1,
-                      "#000000"}, // Statusbar right {text,background,not used
+                            "#000000"}, // Statusbar right {text,background,not used
                                   // but cannot be empty}
     [SchemeTagsSel] = {col_white, accent_bar_color,
-                       "#000000"}, // Tagbar left selected {text,background,not
+                             "#000000"}, // Tagbar left selected {text,background,not
                                    // used but cannot be empty}
     [SchemeTagsNorm] =
         {col_white, col_gray1,
-         "#000000"}, // Tagbar left unselected {text,background,not used but
+               "#000000"}, // Tagbar left unselected {text,background,not used but
                      // cannot be empty}
     [SchemeInfoSel] =
         {col_white, accent_bar_color,
-         "#000000"}, // infobar middle  selected {text,background,not used but
+               "#000000"}, // infobar middle  selected {text,background,not used but
                      // cannot be empty}
     [SchemeInfoNorm] =
         {col_white, col_gray1,
-         "#000000"}, // infobar middle  unselected {text,background,not used but
+               "#000000"}, // infobar middle  unselected {text,background,not used but
                      // cannot be empty}
 };
 
@@ -105,16 +105,16 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY, TAG)                                                      \
-  {MODKEY, KEY, view, {.ui = 1 << TAG}},                                       \
-      {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}},               \
-      {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},                        \
-      {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
+    {MODKEY, KEY, view, {.ui = 1 << TAG}},                                     \
+        {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}},             \
+        {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},                      \
+        {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd)                                                             \
-  {                                                                            \
-    .v = (const char *[]) { "/bin/sh", "-c", cmd, NULL }                       \
-  }
+    {                                                                          \
+        .v = (const char *[]) { "/bin/sh", "-c", cmd, NULL }                   \
+    }
 
 /* commands */
 static char dmenumon[2] =
@@ -125,29 +125,29 @@ static const char *dmenucmd[] = {
 
 /* scratchpad */
 static const char scratchpadname[] = "scratchpad";
-const char *scratchpadcmd[] = {"alacritty",
-                               "-t",
-                               scratchpadname,
-                               "--option",
-                               "window.dimensions.lines=18",
-                               "--option",
-                               "window.dimensions.columns=72",
-                               NULL};
+const char *scratchpadcmd[]        = {"alacritty",
+                                      "-t",
+                                      scratchpadname,
+                                      "--option",
+                                      "window.dimensions.lines=18",
+                                      "--option",
+                                      "window.dimensions.columns=72",
+                                      NULL};
 
-static const char *termcmd[] = {"alacritty", NULL};
+static const char *termcmd[]       = {"alacritty", NULL};
 /* custom commands */
-static const char *brightnessUp[] = {"brightnessctl", "set", "+10%", NULL};
+static const char *brightnessUp[]   = {"brightnessctl", "set", "+10%", NULL};
 static const char *brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
-static const char *browserCmd[] = {"firefox", NULL};
+static const char *browserCmd[]     = {"firefox", NULL};
 static const char *fileManagerCmd[] = {"thunar", NULL};
-static const char *whatsapp[] = {"wasistlos", NULL};
-static const char *telegram[] = {"Telegram", NULL};
-static const char *screenshot[] = {"xfce4-screenshooter", NULL};
-static const char *catfish[] = {"catfish", NULL};
-static const char *emacs[] = {"emacs", NULL};
-static const char *lock_screen[] = {"i3lock", "--color=#000000", NULL};
-static const char *readpdf[] = {"readpdf.sh", NULL};
-static const char *thunderbird[] = {"thunderbird", NULL};
+static const char *whatsapp[]       = {"wasistlos", NULL};
+static const char *telegram[]       = {"Telegram", NULL};
+static const char *screenshot[]     = {"xfce4-screenshooter", NULL};
+static const char *catfish[]        = {"catfish", NULL};
+static const char *emacs[]          = {"emacs", NULL};
+static const char *lock_screen[]    = {"i3lock", "--color=#000000", NULL};
+static const char *readpdf[]        = {"readpdf.sh", NULL};
+static const char *thunderbird[]    = {"thunderbird", NULL};
 
 #include "movestack.c"
 #include <X11/XF86keysym.h>
