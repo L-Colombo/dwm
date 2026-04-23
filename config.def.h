@@ -73,7 +73,6 @@ static const Rule rules[] = {
     {"Parole", NULL, NULL, 0, 1, -1},
     {"Thunar", NULL, NULL, 0, 1, -1},
     {"Wasistlos", NULL, NULL, 1 << 8, 0, -1},
-    {"Telegram", NULL, NULL, 1 << 8, 0, -1},
     {"thunderbird", NULL, NULL, 1 << 7, 0, -1},
 };
 
@@ -141,7 +140,6 @@ static const char *brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
 static const char *browserCmd[]     = {"firefox", NULL};
 static const char *fileManagerCmd[] = {"thunar", NULL};
 static const char *whatsapp[]       = {"wasistlos", NULL};
-static const char *telegram[]       = {"Telegram", NULL};
 static const char *screenshot[]     = {"xfce4-screenshooter", NULL};
 static const char *catfish[]        = {"catfish", NULL};
 static const char *emacs[]          = {"emacs", NULL};
