@@ -72,7 +72,6 @@ static const Rule rules[] = {
     {"Catfish", NULL, NULL, 0, 1, -1},
     {"Parole", NULL, NULL, 0, 1, -1},
     {"Thunar", NULL, NULL, 0, 1, -1},
-    {"Wasistlos", NULL, NULL, 1 << 8, 0, -1},
     {"thunderbird", NULL, NULL, 1 << 7, 0, -1},
 };
 
@@ -139,7 +138,6 @@ static const char *brightnessUp[]   = {"brightnessctl", "set", "+10%", NULL};
 static const char *brightnessDown[] = {"brightnessctl", "set", "10%-", NULL};
 static const char *browserCmd[]     = {"firefox", NULL};
 static const char *fileManagerCmd[] = {"thunar", NULL};
-static const char *whatsapp[]       = {"wasistlos", NULL};
 static const char *screenshot[]     = {"xfce4-screenshooter", NULL};
 static const char *catfish[]        = {"catfish", NULL};
 static const char *emacs[]          = {"emacs", NULL};
@@ -164,8 +162,6 @@ static const Key keys[] = {
     {0, XK_Print, spawn, {.v = screenshot}},
     {MODKEY, XK_f, spawn, {.v = browserCmd}}, // swapped with setlayout float
     {MODKEY, XK_e, spawn, {.v = fileManagerCmd}},
-    {MODKEY, XK_w, spawn, {.v = whatsapp}},
-    {MODKEY, XK_t, spawn, {.v = telegram}},
     {MODKEY, XK_c, spawn, {.v = catfish}},
     {MODKEY, XK_g, spawn, {.v = thunderbird}},
     {MODKEY | ShiftMask, XK_r, spawn, {.v = readpdf}},
